@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge Marathi - Tech Career Kit</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--or:#FF5C00;--bg:#0D0D0D;--card:#161616;--text:#F0EDE8;--muted:#777;--green:#22C55E;--accent:#FF7A2B}
+body{font-family:'Space Grotesk',sans-serif;background-color:#050505;display:flex;justify-content:center;padding:40px 20px;}
+.wrap{background:var(--bg);border-radius:18px;border:1px solid rgba(255,92,0,0.2);overflow:hidden;width:100%;max-width:700px;box-shadow: 0 10px 40px rgba(255,92,0,0.1)}
+.top{padding:22px 24px 0;background:linear-gradient(135deg,#1a0800,#0D0D0D);border-bottom:1px solid rgba(255,92,0,0.15)}
+.brand{font-size:12px;font-weight:700;color:var(--or);letter-spacing:.12em;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.title{font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px}
+.title span{color:var(--or)}
+.sub{font-size:14px;color:var(--muted);margin-bottom:20px}
+.tabs{display:flex;gap:0;overflow-x:auto;}
+.tab{flex:1;background:transparent;border:none;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;padding:12px 8px;cursor:pointer;border-bottom:2px solid transparent;transition:all .18s;white-space:nowrap}
+.tab.on{color:var(--or);border-bottom-color:var(--or);background:rgba(255,92,0,0.05)}
+.tab:hover:not(.on){color:var(--text)}
+.body{padding:24px}
+.pane{display:none}
+.pane.on{display:flex;flex-direction:column;gap:16px;animation:up .2s ease}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:8px}
+input,textarea{width:100%;background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:9px;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:14px;padding:12px 14px;outline:none;resize:none;transition:border-color .18s;line-height:1.6}
+input:focus,textarea:focus{border-color:rgba(255,92,0,0.45)}
+input::placeholder,textarea::placeholder{color:#444}
+.btn{width:100%;background:var(--or);color:#fff;border:none;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;padding:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .18s;margin-top:4px}
+.btn:hover{background:var(--accent);transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,92,0,0.2)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.out{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:10px;display:none;overflow:hidden;margin-top:10px}
+.out.show{display:block}
+.out-head{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:space-between}
+.out-status{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+.cp{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:6px;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;padding:6px 12px;cursor:pointer;transition:all .18s}
+.cp:hover{color:var(--text);background:rgba(255,255,255,0.1)}
+.cp.done{color:var(--green);border-color:var(--green);background:rgba(34,197,94,0.1)}
+.out-text{padding:16px;color:var(--text);font-size:14px;line-height:1.8;white-space:pre-wrap;word-break:break-word;max-height:450px;overflow-y:auto}
+.out-text::-webkit-scrollbar{width:4px}
+.out-text::-webkit-scrollbar-thumb{background:rgba(255,92,0,0.3);border-radius:4px}
+.hint{font-size:13px;color:var(--muted);padding:12px 16px;background:rgba(255,92,0,0.04);border-radius:8px;border-left:3px solid var(--or);line-height:1.6}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:500px){.two{grid-template-columns:1fr}}
+.err{font-size:13px;color:#ff6b6b;padding:10px 14px;background:rgba(255,107,107,0.07);border-radius:8px;display:none}
+.err.show{display:block}
+.dots{display:flex;gap:5px;align-items:center}
+.d{width:7px;height:7px;background:var(--or);border-radius:50%;animation:p 1.1s infinite}
+.d:nth-child(2){animation-delay:.18s}
+.d:nth-child(3){animation-delay:.36s}
+@keyframes p{0%,80%,100%{opacity:.25;transform:scale(.75)}40%{opacity:1;transform:scale(1)}}
+.foot{text-align:center;font-size:12px;color:#444;padding:16px;border-top:1px solid rgba(255,255,255,0.03);letter-spacing:.05em}
+.foot b{color:var(--or)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><i class="ti ti-bolt"></i> EDGE MARATHI EXCLUSIVE</div>
+    <div class="title">Tech & Data Analyst <span>Career Kit</span></div>
+    <div class="sub">Interview Prep · LinkedIn Optimization · Cover Letter</div>
+    <div class="tabs">
+      <button class="tab on" onclick="go('iq',this)"><i class="ti ti-target"></i> CV+JD → Interview</button>
+      <button class="tab" onclick="go('li',this)"><i class="ti ti-brand-linkedin"></i> LinkedIn Bio</button>
+      <button class="tab" onclick="go('cl',this)"><i class="ti ti-file-description"></i> Cover Letter</button>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- TAB 1: INTERVIEW -->
+    <div id="piq" class="pane on">
+      <div class="hint">💡 तुझा CV आणि Job Description पेस्ट कर. AI तुला specific प्रश्न आणि model उत्तरे देईल.</div>
+      <div class="two">
+        <div><label>तुझा CV *</label><textarea id="iq-cv" rows="8" placeholder="उदा: Name: Omkar&#10;Skills: SQL, Python, Power BI, Excel&#10;Experience: 1.5 yrs Tech Mahindra&#10;Projects: Sales Dashboard..."></textarea></div>
+        <div><label>Job Description *</label><textarea id="iq-jd" rows="8" placeholder="Looking for Data Analyst:&#10;- Proficient in SQL & Python&#10;- Dashboard creation in Power BI&#10;- Data cleaning & visualization..."></textarea></div>
+      </div>
+      <div class="err" id="eiq"></div>
+      <button class="btn" id="biq" onclick="gen('iq')"><i class="ti ti-sparkles"></i> Questions Generate कर</button>
+      <div class="out" id="oiq">
+        <div class="out-head"><span class="out-status"><i class="ti ti-check"></i> Questions Ready</span><button class="cp" id="cpiq" onclick="cp('iq')">Copy All</button></div>
+        <div class="out-text" id="tiq"></div>
+      </div>
+    </div>
+
+    <!-- TAB 2: LINKEDIN -->
+    <div id="pli" class="pane">
+      <div class="hint">💡 तुझी प्रोफाईल recruiters ला standout दिसावी यासाठी एक professional bio बनव.</div>
+      <div><label>नाव + Role *</label><input id="li-n" placeholder="उदा: Omkar — Data Analyst"/></div>
+      <div><label>Experience + Skills *</label><textarea id="li-s" rows="3" placeholder="उदा: 1.5 yrs experience, transitioning into Data Analytics. Skilled in SQL, Power BI, Python..."></textarea></div>
+      <div><label>Tone (optional)</label><input id="li-t" placeholder="Professional / Engaging / Confident" value="Professional & Engaging"/></div>
+      <div class="err" id="eli"></div>
+      <button class="btn" id="bli" onclick="gen('li')"><i class="ti ti-sparkles"></i> Bio Generate कर</button>
+      <div class="out" id="oli">
+        <div class="out-head"><span class="out-status"><i class="ti ti-check"></i> Bio Ready</span><button class="cp" id="cpli" onclick="cp('li')">Copy</button></div>
+        <div class="out-text" id="tli"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: COVER LETTER -->
+    <div id="pcl" class="pane">
+      <div class="hint">💡 JD नुसार Personalized Cover Letter तयार कर, जे generic वाटणार नाही.</div>
+      <div class="two">
+        <div><label>तुझे नाव *</label><input id="cl-n" placeholder="उदा: Omkar"/></div>
+        <div><label>Target Role *</label><input id="cl-r" placeholder="उदा: Junior Data Analyst"/></div>
+      </div>
+      <div><label>Background / Skills *</label><textarea id="cl-s" rows="2" placeholder="उदा: Experience in CI/CD, currently mastered SQL and Power BI for data visualization..."></textarea></div>
+      <div><label>Job Description (optional)</label><textarea id="cl-j" rows="3" placeholder="Paste JD here for better accuracy..."></textarea></div>
+      <div class="err" id="ecl"></div>
+      <button class="btn" id="bcl" onclick="gen('cl')"><i class="ti ti-sparkles"></i> Cover Letter बनव</button>
+      <div class="out" id="ocl">
+        <div class="out-head"><span class="out-status"><i class="ti ti-check"></i> Letter Ready</span><button class="cp" id="cpcl" onclick="cp('cl')">Copy</button></div>
+        <div class="out-text" id="tcl"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="foot">Developed for <b>Edge Marathi</b> Community × Powered by AI</div>
+</div>
+
+<script>
+// ==========================================
+// ⚠️ OMKAR: TUJI GEMINI API KEY KHALI TAK ⚠️
+// ==========================================
+const GKEY = 'TUJI_API_KEY_HITHE_TAK'; 
+// ==========================================
+
+const CFG = {
+  iq:{label:'Questions Generate कर', tokens:1500},
+  li:{label:'Bio Generate कर', tokens:600},
+  cl:{label:'Cover Letter बनव', tokens:700}
+};
+
+function go(id,btn){
+  ['iq','li','cl'].forEach(x=>document.getElementById('p'+x).classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('p'+id).classList.add('on');
+  btn.classList.add('on');
+}
+
+function showErr(id,msg){
+  const e=document.getElementById('e'+id);
+  e.textContent=msg; e.classList.add('show');
+  setTimeout(()=>e.classList.remove('show'),4500);
+}
+
+function setBtn(id,loading){
+  const b=document.getElementById('b'+id);
+  b.disabled=loading;
+  b.innerHTML=loading
+    ?'<div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div></div> AI लिहितोय...'
+    :'<i class="ti ti-sparkles"></i> '+CFG[id].label;
+}
+
+function getPrompt(id){
+  if(id==='iq'){
+    const cv=document.getElementById('iq-cv').value.trim();
+    const jd=document.getElementById('iq-jd').value.trim();
+    if(!cv||!jd){showErr('iq','⚠️ CV आणि JD दोन्ही भरणे आवश्यक आहे');return null;}
+    return `You are an expert Tech & Data Analytics interview coach. Analyze this CV and JD carefully.
+
+CV:
+${cv}
+
+JD:
+${jd}
+
+Generate 10 highly specific interview questions with detailed model answers based on how the CV matches the JD. Format strictly as:
+**Q1: [Question]**
+A: [Answer]`;
+  }
+  if(id==='li'){
+    const n=document.getElementById('li-n').value.trim();
+    const s=document.getElementById('li-s').value.trim();
+    if(!n||!s){showErr('li','⚠️ नाव आणि Skills भरणे आवश्यक आहे');return null;}
+    const t=document.getElementById('li-t').value.trim()||'Professional & Engaging';
+    return `Write a highly optimized LinkedIn About section (160-200 words) for: ${n}. Background/Skills: ${s}. Tone: ${t}. Start with a strong hook. Highlight problem-solving abilities. Add a clear CTA at the end.`;
+  }
+  if(id==='cl'){
+    const n=document.getElementById('cl-n').value.trim();
+    const r=document.getElementById('cl-r').value.trim();
+    const s=document.getElementById('cl-s').value.trim();
+    if(!n||!r||!s){showErr('cl','⚠️ नाव, Role आणि Skills भरणे आवश्यक आहे');return null;}
+    const j=document.getElementById('cl-j').value.trim();
+    return `Write a professional 200-word cover letter for ${n} applying for the role of ${r}. Candidate Background: ${s}. ${j?'Job Description to match against: '+j:''} Structure: Strong opening, core paragraph matching skills to needs, confident closing.`;
+  }
+}
+
+async function gen(id){
+  if(GKEY === 'AIzaSyD_U5p-VyKCjssEh6yAR9XYasS4AHu4F7M'){
+    showErr(id,'⚠️ Omkar, aadhi code madhye tuji API Key tak! (Line 137)');
+    return;
+  }
+  const prompt=getPrompt(id);
+  if(!prompt)return;
+  const out=document.getElementById('o'+id);
+  const txt=document.getElementById('t'+id);
+  out.classList.add('show');
+  txt.innerHTML='<div style="padding:14px 0;display:flex;align-items:center;gap:10px"><div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div></div><span style="color:var(--muted);font-size:14px">Edge AI विचार करत आहे...</span></div>';
+  setBtn(id,true);
+  try{
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GKEY}`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        contents:[{parts:[{text:prompt}]}],
+        generationConfig:{maxOutputTokens:CFG[id].tokens,temperature:0.7}
+      })
+    });
+    const data=await res.json();
+    if(!res.ok) throw new Error(data?.error?.message||'API error '+res.status);
+    const result=data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    if(!result) throw new Error('Empty response from AI');
+    
+    const formattedResult = result.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+    txt.innerHTML = formattedResult.replace(/
+/g, '<br>');
+    
+  }catch(e){
+    out.classList.remove('show');
+    showErr(id,'⚠️ '+(e.message||'Error. Try again.'));
+  }finally{
+    setBtn(id,false);
+  }
+}
+
+function cp(id){
+  const t=document.getElementById('t'+id).innerText;
+  if(!t)return;
+  navigator.clipboard.writeText(t).then(()=>{
+    const b=document.getElementById('cp'+id);
+    b.innerHTML='<i class="ti ti-check"></i> Copied'; 
+    b.classList.add('done');
+    setTimeout(()=>{
+      b.innerHTML=id==='iq'?'Copy All':'Copy'; 
+      b.classList.remove('done');
+    },2000);
+  });
+}
+</script>
+</body>
+</html>
