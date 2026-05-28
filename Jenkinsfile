@@ -10,25 +10,25 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building application...'
-                sh 'echo Build successful'
+                bat 'echo Build successful'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'echo All tests passed'
+                bat 'echo All tests passed'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'echo Deployed successfully'
+                bat 'echo Deployed successfully'
             }
         }
     }
     post {
         success {
-            echo 'Pipeline SUCCESS!'
+            echo 'Pipeline SUCCESS! Omkar rocks!'
         }
         failure {
             echo 'Pipeline FAILED!'
